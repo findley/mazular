@@ -32,8 +32,8 @@ while True:
 
     mcguff_sprite = pygame.image.load("art/mcguffs.png")
     pygame.transform.scale(player_sprite.subsurface(7,21,160,190),(SQ_SIZE-10,SQ_SIZE-10))
-    crown_mg = pygame.transform.scale(mcguff_sprite.subsurface(32,163,56,30),(SQ_SIZE-10,SQ_SIZE-10))
-    sceptor_mg = pygame.transform.scale(mcguff_sprite.subsurface(148,121,70,70),(SQ_SIZE-10,SQ_SIZE-10))
+    crown_mg = pygame.transform.scale(mcguff_sprite.subsurface(32,163,56,30),(SQ_SIZE-20,SQ_SIZE-30))
+    sceptor_mg = pygame.transform.scale(mcguff_sprite.subsurface(121,148,70,70),(SQ_SIZE-20,SQ_SIZE-20))
     dragon_right = pygame.transform.scale(mcguff_sprite.subsurface(250,147,111,88),(SQ_SIZE-10,SQ_SIZE-10))
     dragon_left = pygame.transform.scale(mcguff_sprite.subsurface(377,147,111,88),(SQ_SIZE-10,SQ_SIZE-10))
     dragon_front = pygame.transform.scale(mcguff_sprite.subsurface(376,252,104,80),(SQ_SIZE-10,SQ_SIZE-10))
@@ -76,22 +76,23 @@ while True:
     floor_texture = pygame.transform.scale(floor_texture,(SQ_SIZE+WALL_HEIGHT,SQ_SIZE+WALL_HEIGHT));
 
     while not pygame.event.peek(KEYDOWN):
-        text = FONT.render("Mazular", True, (102, 205, 170))
-        textRect = text.get_rect()
-        textRect.centerx = SURFACE.get_rect().centerx
-        textRect.centery = SURFACE.get_rect().centery-225
-        SURFACE.blit(text,textRect)
+        
         text = FONT.render("Two ghosts are trying to inhabit a king's body", True, (102, 205, 170))
         textRect = text.get_rect()
         textRect.centerx = SURFACE.get_rect().centerx
         textRect.centery = SURFACE.get_rect().centery-150
         SURFACE.blit(text,textRect)
-        text2 = pygame.transform.scale(FONT.render("but to do so they must collect a royal scepter or crown first", True, (102, 205, 170)), (650,50))
+        text2 = pygame.transform.scale(FONT.render("but to do so they must first collect a royal artifact:", True, (102, 205, 170)), (650,50))
+        text = FONT.render("the royal sceptor or the royal crown", True, (102, 205, 170))
+        textRect = text.get_rect()
+        textRect.centerx = SURFACE.get_rect().centerx
+        textRect.centery = SURFACE.get_rect().centery
+        SURFACE.blit(text,textRect)
         textRect4 = text2.get_rect()
         textRect4.centerx = SURFACE.get_rect().centerx
         textRect4.centery = SURFACE.get_rect().centery-75
         SURFACE.blit(text2,textRect4)
-        controls = pygame.transform.scale(FONT.render("wasd control the left player, arrow keys control the right player, esc to exit", True, (102, 205, 170)), (700,50))
+        controls = pygame.transform.scale(FONT.render("wasd control the left player, arrow keys control the right player, esc exits", True, (102, 205, 170)), (700,50))
         textRect2 = controls.get_rect()
         textRect2.centerx = SURFACE.get_rect().centerx
         textRect2.centery = SURFACE.get_rect().centery+75
